@@ -78,7 +78,7 @@ async def run_rag():
         vectorestore = FAISS.load_local(VECTORSTORE_PATH, OpenAIEmbeddings(), allow_dangerous_deserialization=True)
     else:
         print("🌐 Crawling and building FAISS index...")
-        docs = crawl_website("https://support.geojit.com/support/solutions/articles/89000006825")
+        docs = crawl_website("weburl")
         splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
         split_docs = splitter.split_documents(docs)
 
